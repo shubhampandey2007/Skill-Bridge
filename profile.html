@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge — Build Your Profile</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230E2018'/%3E%3Cpath d='M20 6C20 6 10 13 10 23C10 29.6 14.6 33 20 33C25.4 33 30 29.6 30 23C30 13 20 6 20 6Z' fill='none' stroke='%23D2A13D' stroke-width='2'/%3E%3Cpath d='M20 11V31' stroke='%238FAE84' stroke-width='1.4' stroke-opacity='0.7'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="noise"></div>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-mark">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M20 4C20 4 8 12 8 24C8 31.7 13.4 36 20 36C26.6 36 32 31.7 32 24C32 12 20 4 20 4Z" stroke="currentColor" stroke-width="2.4"/>
+                        <path d="M20 10V32" stroke="currentColor" stroke-width="1.6" stroke-opacity="0.55"/>
+                    </svg>
+                </span>
+
+                <span class="brand-name">
+                    Skill<em>Bridge</em>
+                </span>
+
+            </a>
+
+            <div class="nav-actions">
+
+                <a href="index.html" class="btn btn-ghost">
+                    ← Back
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- PROFILE SETUP -->
+
+    <main>
+
+        <section class="profile-page">
+
+            <div class="profile-page-container">
+
+
+                <!-- INTRO -->
+
+                <div class="profile-intro">
+
+                    <div class="eyebrow">
+                        STEP 01 / 03
+                    </div>
+
+                    <h1>
+                        Let's understand
+                        <span>where you are.</span>
+                    </h1>
+
+                    <p>
+                        Tell us a little about yourself. This information
+                        helps us understand your interests and create a
+                        more relevant assessment.
+                    </p>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <form class="profile-form" id="profileForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            YOUR NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="form-group">
+
+                        <label for="education">
+                            CURRENT EDUCATION LEVEL
+                        </label>
+
+                        <select
+                            id="education"
+                            name="education"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                Select your current level
+                            </option>
+
+                            <option value="school">
+                                School
+                            </option>
+
+                            <option value="undergraduate">
+                                Undergraduate
+                            </option>
+
+                            <option value="postgraduate">
+                                Postgraduate
+                            </option>
+
+                            <option value="working">
+                                Working Professional
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- INTEREST -->
+
+                    <div class="form-group">
+
+                        <label for="interest">
+                            PRIMARY AREA OF INTEREST
+                        </label>
+
+                        <select
+                            id="interest"
+                            name="interest"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                What are you interested in?
+                            </option>
+
+                            <option value="software">
+                                Software Development
+                            </option>
+
+                            <option value="data">
+                                Data Science / Analytics
+                            </option>
+
+                            <option value="ai">
+                                Artificial Intelligence / ML
+                            </option>
+
+                            <option value="cybersecurity">
+                                Cybersecurity
+                            </option>
+
+                            <option value="web">
+                                Web Development
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CURRENT LEVEL -->
+
+                    <div class="form-group">
+
+                        <label>
+                            HOW WOULD YOU DESCRIBE YOUR CURRENT LEVEL?
+                        </label>
+
+                        <div class="level-options">
+
+
+                            <label class="level-option">
+
+                                <input
+                                    type="radio"
+                                    name="level"
+                                    value="beginner"
+                                    required
+                                >
+
+                                <span class="level-content">
+
+                                    <strong>
+                                        Beginner
+                                    </strong>
+
+                                    <small>
+                                        I'm just getting started.
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+
+                            <label class="level-option">
+
+                                <input
+                                    type="radio"
+                                    name="level"
+                                    value="intermediate"
+                                >
+
+                                <span class="level-content">
+
+                                    <strong>
+                                        Intermediate
+                                    </strong>
+
+                                    <small>
+                                        I know the fundamentals.
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+
+                            <label class="level-option">
+
+                                <input
+                                    type="radio"
+                                    name="level"
+                                    value="advanced"
+                                >
+
+                                <span class="level-content">
+
+                                    <strong>
+                                        Advanced
+                                    </strong>
+
+                                    <small>
+                                        I can work independently.
+                                    </small>
+
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SKILLS -->
+
+                    <div class="form-group">
+
+                        <label for="skills">
+                            SKILLS YOU ALREADY KNOW
+                        </label>
+
+                        <input
+                            type="text"
+                            id="skills"
+                            name="skills"
+                            placeholder="e.g. Python, SQL, HTML"
+                        >
+
+                        <span class="input-hint">
+                            Separate multiple skills with commas.
+                        </span>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div class="form-footer">
+
+                        <div class="form-progress">
+
+                            <span class="progress-active"></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-large"
+                        >
+                            Continue to Assessment →
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        document
+            .getElementById("profileForm")
+            .addEventListener("submit", function(event) {
+    
+                event.preventDefault();
+    
+                const profile = {
+    
+                    name:
+                        document.getElementById("name").value,
+    
+                    education:
+                        document.getElementById("education").value,
+    
+                    interest:
+                        document.getElementById("interest").value,
+    
+                    level:
+                        document.querySelector(
+                            'input[name="level"]:checked'
+                        ).value,
+    
+                    skills:
+                        document.getElementById("skills").value
+                };
+    
+                localStorage.setItem(
+                    "skillsetuProfile",
+                    JSON.stringify(profile)
+                );
+    
+                window.location.href = "assessment.html";
+    
+            });
+    </script>
+
+</body>
+
+</html>
