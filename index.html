@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge — Know Where You Stand</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230E2018'/%3E%3Cpath d='M20 6C20 6 10 13 10 23C10 29.6 14.6 33 20 33C25.4 33 30 29.6 30 23C30 13 20 6 20 6Z' fill='none' stroke='%23D2A13D' stroke-width='2'/%3E%3Cpath d='M20 11V31' stroke='%238FAE84' stroke-width='1.4' stroke-opacity='0.7'/%3E%3C/svg%3E">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="noise"></div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- Brand -->
+            <a href="index.html" class="brand">
+
+                <span class="brand-mark">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M20 4C20 4 8 12 8 24C8 31.7 13.4 36 20 36C26.6 36 32 31.7 32 24C32 12 20 4 20 4Z"
+                            stroke="currentColor" stroke-width="2.4" />
+                        <path d="M20 10V32" stroke="currentColor" stroke-width="1.6" stroke-opacity="0.55" />
+                    </svg>
+                </span>
+
+                <span class="brand-name">
+                    Skill<em>Bridge</em>
+                </span>
+
+            </a>
+
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+
+                <a href="#how-it-works">
+                    How It Works
+                </a>
+
+                <a href="#why-skillbridge">
+                    Why SkillBridge
+                </a>
+
+                <a href="#features">
+                    Features
+                </a>
+
+                <a href="#portals">
+                    Portals
+                </a>
+
+            </nav>
+
+
+            <!-- Account Buttons -->
+            <div class="nav-actions">
+
+                <a href="profile.html" class="nav-link">
+                    Sign In
+                </a>
+
+                <a href="profile.html" class="nav-link">
+                    Sign Up
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO SECTION
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-container">
+
+
+                <!-- Hero Text -->
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        STUDENT SKILL INTELLIGENCE PLATFORM
+                    </div>
+
+
+                    <h1>
+                        Know where you stand.
+                        <span>Know where to go next.</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        SkillBridge helps students understand their current
+                        skill level, identify knowledge gaps and discover
+                        the next steps in their learning journey.
+
+                    </p>
+
+
+                    <!-- Hero Buttons -->
+
+                    <div class="hero-actions">
+
+                        <a href="profile.html" class="btn btn-primary">
+                            Start Your Assessment →
+                        </a>
+
+                        <a href="#how-it-works" class="btn btn-outline btn-large">
+                            How It Works →
+                        </a>
+
+                    </div>
+
+
+                    <!-- Hero Meta -->
+
+                    <div class="hero-meta">
+
+                        <span>
+                            AI-powered evaluation
+                        </span>
+
+                        <span>
+                            Personalized roadmap
+                        </span>
+
+                        <span>
+                            Student-first
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Hero Visual / Mock Dashboard -->
+
+                <div class="hero-visual">
+
+                    <div class="profile-card">
+
+                        <div class="profile-header">
+
+                            <div>
+
+                                <span class="card-label">
+                                    CURRENT PROFILE
+                                </span>
+
+                                <h3>
+                                    Your Skill Snapshot
+                                </h3>
+
+                            </div>
+
+                            <span class="status-dot"></span>
+
+                        </div>
+
+
+                        <!-- Overall Score -->
+
+                        <div class="score-section">
+
+                            <div class="score-number">
+                                78<span>%</span>
+                            </div>
+
+                            <div class="score-description">
+                                Overall skill readiness
+                            </div>
+
+                        </div>
+
+
+                        <!-- Skill Bars -->
+
+                        <div class="skill-list">
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        Python
+                                    </span>
+
+                                    <span>
+                                        86%
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="skill-progress progress-86"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        Data Analysis
+                                    </span>
+
+                                    <span>
+                                        72%
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="skill-progress progress-72"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        SQL
+                                    </span>
+
+                                    <span>
+                                        81%
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="skill-progress progress-81"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-row">
+
+                                <div class="skill-info">
+
+                                    <span>
+                                        Statistics
+                                    </span>
+
+                                    <span>
+                                        61%
+                                    </span>
+
+                                </div>
+
+                                <div class="skill-bar">
+                                    <div class="skill-progress progress-61"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Next Areas -->
+
+                        <div class="next-area">
+
+                            <span class="card-label">
+                                NEXT AREAS
+                            </span>
+
+                            <div class="next-tags">
+
+                                <span>
+                                    Statistics
+                                </span>
+
+                                <span>
+                                    Machine Learning
+                                </span>
+
+                                <span>
+                                    Data Visualization
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             WHY SKILLSETU
+        ====================================================== -->
+
+        <section class="section why-section" id="why-skillbridge">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        THE PROBLEM
+                    </div>
+
+                    <h2>
+                        Students know what they want.
+                        They don't always know where they stand.
+                    </h2>
+
+                    <p>
+                        SkillBridge turns uncertainty into a measurable
+                        starting point and a clear direction.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Problem Cards -->
+
+                <div class="problem-grid">
+
+
+                    <article class="problem-card">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Unclear Skill Level
+                        </h3>
+
+                        <p>
+                            Students often learn multiple technologies
+                            without knowing how strong their actual
+                            understanding is.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="problem-card">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <h3>
+                            No Clear Roadmap
+                        </h3>
+
+                        <p>
+                            Knowing a technology is not enough. Students
+                            need to understand what they should learn next.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="problem-card">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Skill ≠ Certificate
+                        </h3>
+
+                        <p>
+                            SkillBridge focuses on what a student actually
+                            understands rather than simply collecting
+                            certificates.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             HOW IT WORKS
+        ====================================================== -->
+
+        <section class="section process-section" id="how-it-works">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        HOW IT WORKS
+                    </div>
+
+                    <h2>
+                        From uncertainty to direction.
+                    </h2>
+
+                    <p>
+                        A simple process designed around understanding
+                        the student's current position.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Process Steps -->
+
+                <div class="process-grid">
+
+
+                    <article class="process-step">
+
+                        <span class="step-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Build Your Profile
+                        </h3>
+
+                        <p>
+                            Tell SkillBridge about your current level,
+                            interests and areas you want to explore.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="process-step">
+
+                        <span class="step-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Take Assessment
+                        </h3>
+
+                        <p>
+                            Answer questions designed around the skills
+                            and topics you want to evaluate.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="process-step">
+
+                        <span class="step-number">
+                            03
+                        </span>
+
+                        <h3>
+                            AI Evaluates
+                        </h3>
+
+                        <p>
+                            AI evaluates your answers across multiple
+                            parameters instead of simply marking them
+                            right or wrong.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="process-step">
+
+                        <span class="step-number">
+                            04
+                        </span>
+
+                        <h3>
+                            See Your Knowledge Profile
+                        </h3>
+
+                        <p>
+                            Understand your strengths, gaps,
+                            misconceptions and current skill level.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="process-step">
+
+                        <span class="step-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Find Your Next Move
+                        </h3>
+
+                        <p>
+                            Get a personalized roadmap and identify
+                            relevant learning and career opportunities.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FEATURES
+        ====================================================== -->
+
+        <section class="section features-section" id="features">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        PLATFORM
+                    </div>
+
+                    <h2>
+                        Built around your skills.
+                    </h2>
+
+                </div>
+
+
+
+                <div class="features-grid">
+
+
+                    <!-- Feature 1 -->
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            01
+                        </span>
+
+                        <h3>
+                            AI Skill Assessment
+                        </h3>
+
+                        <p>
+                            Evaluate free-form answers using AI across
+                            accuracy, understanding and concept coverage.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 2 -->
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Knowledge Profile
+                        </h3>
+
+                        <p>
+                            Build a visual representation of what you
+                            know, what you don't and where your gaps are.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 3 -->
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Personalized Roadmap
+                        </h3>
+
+                        <p>
+                            Turn identified gaps into practical next
+                            learning steps.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 4 -->
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Institution Connect
+                        </h3>
+
+                        <p>
+                            Connect a student's SkillBridge profile with
+                            their academic institution.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 5 -->
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            05
+                        </span>
+
+                        <h3>
+                            LinkedIn Integration
+                        </h3>
+
+                        <p>
+                            Connect professional profiles in future
+                            versions of the platform.
+                        </p>
+
+                        <span class="coming-soon">
+                            COMING SOON
+                        </span>
+
+                    </article>
+
+
+
+                    <!-- Feature 6 -->
+
+                    <article class="feature-card">
+
+                        <span class="feature-number">
+                            06
+                        </span>
+
+                        <h3>
+                            Opportunity Discovery
+                        </h3>
+
+                        <p>
+                            Identify opportunities that match your
+                            current skill level and roadmap.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FOUR PORTALS
+        ====================================================== -->
+
+        <section class="section portals-section" id="portals">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        SKILLBRIDGE ECOSYSTEM
+                    </div>
+
+                    <h2>
+                        One platform.
+                        Four connected portals.
+                    </h2>
+
+                    <p>
+                        Different stakeholders, connected through
+                        one skill intelligence ecosystem.
+                    </p>
+
+                </div>
+
+
+
+                <div class="portal-grid">
+
+
+                    <!-- USER PORTAL -->
+
+                    <a href="index.html" class="portal-card active-portal">
+
+                        <span class="portal-number">
+                            01
+                        </span>
+
+                        <span class="portal-status">
+                            ACTIVE
+                        </span>
+
+                        <h3>
+                            User Portal
+                        </h3>
+
+                        <p>
+                            Allow students to search, apply, and track internship and placement opportunities through a
+                            single platform.
+                            Maintain a digital portfolio for students containing verified skills, certifications,
+                            projects, internships, and achievements to improve employability.
+                        </p>
+
+                        <span class="portal-link">
+                            Enter Portal →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- INSTITUTIONS PORTAL -->
+
+                    <a href="#" class="portal-card">
+
+                        <span class="portal-number">
+                            02
+                        </span>
+
+                        <span class="portal-status">
+                            COMING SOON
+                        </span>
+
+                        <h3>
+                            Institution Portal
+                        </h3>
+
+                        <p>
+                            Enable institutions to monitor student skill development, internship participation, and
+                            placement progress through dashboards and analytics.
+                        </p>
+
+                        <span class="portal-link">
+                            Explore Portal →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- INDUSTRY PORTAL -->
+
+                    <a href="#" class="portal-card">
+
+                        <span class="portal-number">
+                            03
+                        </span>
+
+                        <span class="portal-status">
+                            COMING SOON
+                        </span>
+
+                        <h3>
+                            Industry Portal
+                        </h3>
+
+                        <p>
+                            Companies can publish training programs, certification courses, workshops, and mentorship
+                            initiatives to help students acquire in-demand skills before applying.
+                        </p>
+
+                        <span class="portal-link">
+                            Explore Portal →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- ACADEMICIANS PORTAL -->
+
+                    <a href="#" class="portal-card">
+
+                        <span class="portal-number">
+                            04
+                        </span>
+
+                        <span class="portal-status">
+                            COMING SOON
+                        </span>
+
+                        <h3>
+                            Academicians Portal
+                        </h3>
+
+                        <p>
+                            A dedicated portal for academicians to explore faculty internships, industrial training,
+                            Faculty Development Programs (FDPs), consultancy opportunities, and collaborative research
+                            projects.
+                        </p>
+
+                        <span class="portal-link">
+                            Explore Portal →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INTEGRATIONS
+        ====================================================== -->
+
+        <section class="section integrations-section">
+
+            <div class="section-container">
+
+                <div class="integration-card">
+
+
+                    <div class="integration-content">
+
+                        <div class="eyebrow">
+                            FUTURE CONNECTIVITY
+                        </div>
+
+                        <h2>
+                            Connect your existing identity.
+                        </h2>
+
+                        <p>
+                            SkillBridge is designed to eventually connect
+                            academic and professional profiles into one
+                            skill intelligence layer.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="integration-actions">
+
+                        <a href="#" class="btn btn-primary">
+                            Connect Institution
+                        </a>
+
+                        <a href="#" class="btn btn-outline">
+                            Connect LinkedIn
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FINAL CTA
+        ====================================================== -->
+
+        <section class="section final-cta">
+
+            <div class="section-container">
+
+                <div class="cta-content">
+
+                    <div class="eyebrow">
+                        START HERE
+                    </div>
+
+                    <h2>
+                        Stop guessing.
+                        Start knowing.
+                    </h2>
+
+                    <p>
+                        Find your current level, understand your gaps
+                        and discover what you should do next.
+                    </p>
+
+                    <a href="#" class="btn btn-primary btn-large">
+                        Start Your Assessment →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-top">
+
+
+                <!-- Footer Brand -->
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="brand">
+
+                        <span class="brand-mark">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M20 4C20 4 8 12 8 24C8 31.7 13.4 36 20 36C26.6 36 32 31.7 32 24C32 12 20 4 20 4Z"
+                                    stroke="currentColor" stroke-width="2.4" />
+                                <path d="M20 10V32" stroke="currentColor" stroke-width="1.6" stroke-opacity="0.55" />
+                            </svg>
+                        </span>
+
+                        <span class="brand-name">
+                            Skill<em>Bridge</em>
+                        </span>
+
+                    </a>
+
+                    <p>
+                        Know where you stand.
+                        Know where to go next.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Portal Links -->
+
+                <div class="footer-column">
+
+                    <h4>
+                        Portals
+                    </h4>
+
+                    <a href="index.html">
+                        User Portal
+                    </a>
+
+                    <a href="#">
+                        Institution Portal
+                    </a>
+
+                    <a href="#">
+                        Industry Portal
+                    </a>
+
+                    <a href="#">
+                        Academicians Portal
+                    </a>
+
+                </div>
+
+
+
+                <!-- Platform Links -->
+
+                <div class="footer-column">
+
+                    <h4>
+                        Platform
+                    </h4>
+
+                    <a href="#how-it-works">
+                        How It Works
+                    </a>
+
+                    <a href="#features">
+                        Features
+                    </a>
+
+                    <a href="#why-skillbridge">
+                        Why SkillBridge
+                    </a>
+
+                    <a href="#portals">
+                        Ecosystem
+                    </a>
+
+                </div>
+
+
+
+                <!-- Account Links -->
+
+                <div class="footer-column">
+
+                    <h4>
+                        Account
+                    </h4>
+
+                    <a href="#">
+                        Sign In
+                    </a>
+
+                    <a href="#">
+                        Sign Up
+                    </a>
+
+                    <a href="#">
+                        Connect Institution
+                    </a>
+
+                    <a href="#">
+                        Connect LinkedIn
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Footer Bottom -->
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 SkillBridge
+                </span>
+
+                <span>
+                    Student Skill Intelligence Platform
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
