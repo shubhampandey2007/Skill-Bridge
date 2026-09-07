@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assessment — SkillSetu</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="assessment-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="brand">
+                Skill<span>Setu</span>
+            </a>
+
+            <div class="nav-right">
+                <span class="assessment-label">SKILL ASSESSMENT</span>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- ASSESSMENT -->
+    <main class="assessment-container">
+
+        <!-- INTRO -->
+        <section class="assessment-intro">
+
+            <div class="eyebrow">
+                STEP 02 / 03
+            </div>
+
+            <h1>
+                Let's find out<br>
+                <em>where you stand.</em>
+            </h1>
+
+            <p>
+                Answer naturally. There are no tricks.
+                SkillBridge looks beyond right and wrong answers
+                to understand what you actually know.
+            </p>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+        <div class="assessment-progress">
+
+            <div class="progress-info">
+                <span>QUESTION <strong id="questionNumber">01</strong> / 03</span>
+                <span id="progressPercent">33%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION CARD -->
+        <section class="question-card">
+
+            <div class="question-category">
+                CONCEPTUAL UNDERSTANDING
+            </div>
+
+            <h2 id="questionText">
+                What is a cat?
+            </h2>
+
+            <p class="question-hint">
+                Explain it in your own words. Don't worry about using technical language.
+            </p>
+
+            <textarea
+                id="answerInput"
+                placeholder="Write your answer here..."
+                rows="7"
+            ></textarea>
+
+            <div class="answer-footer">
+
+                <span class="character-count" id="characterCount">
+                    0 characters
+                </span>
+
+                <button class="btn btn-primary" id="nextButton">
+                    Next Question →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ASSESSMENT NOTE -->
+        <div class="assessment-note">
+
+            <span class="note-mark">i</span>
+
+            <p>
+                Your answers will be evaluated across accuracy,
+                understanding, concept coverage and skill-level performance.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+    let questions = [];
+    let currentQuestion = 0;
+    let answers = [];
+
+    const questionText = document.getElementById("questionText");
+    const questionNumber = document.getElementById("questionNumber");
+    const progressPercent = document.getElementById("progressPercent");
+    const progressFill = document.getElementById("progressFill");
+    const answerInput = document.getElementById("answerInput");
+    const characterCount = document.getElementById("characterCount");
+    const nextButton = document.getElementById("nextButton");
+
+
+    // ---------------- GET USER ID ----------------
+
+    // Change this if your login code stores the user differently.
+    const savedUser = JSON.parse(localStorage.getItem("skillsetuUser"));
+
+    if (!savedUser || !savedUser.id) {
+
+        alert("User session not found. Please login again.");
+
+        window.location.href = "login.html";
+
+    }
+
+    const userId = savedUser.id;
+
+
+    // ---------------- CHARACTER COUNTER ----------------
+
+    answerInput.addEventListener("input", function () {
+
+        const count = answerInput.value.length;
+
+        characterCount.textContent =
+            count + (count === 1 ? " character" : " characters");
+
+    });
+
+
+    // ---------------- LOAD QUESTIONS FROM FLASK ----------------
+
+    async function fetchQuestions() {
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:5000/questions/" + userId
+            );
+
+            const data = await response.json();
+
+            if (!data.success) {
+
+                alert("Could not load assessment questions.");
+
+                return;
+
+            }
+
+            questions = data.questions;
+
+            console.log("Questions received:", questions);
+
+            loadQuestion();
+
+        }
+
+        catch (error) {
+
+            console.error("Question loading failed:", error);
+
+            alert(
+                "Could not connect to SkillBridge backend. " +
+                "Make sure Flask is running."
+            );
+
+        }
+
+    }
+
+
+    // ---------------- LOAD CURRENT QUESTION ----------------
+
+    function loadQuestion() {
+
+        if (questions.length === 0) {
+            return;
+        }
+
+        const question = questions[currentQuestion];
+
+        questionText.textContent = question.question;
+
+
+        // Backend currently sends only the question.
+        // These remain as UI labels.
+
+        document.querySelector(".question-category").textContent =
+            "SKILL ASSESSMENT";
+
+        document.querySelector(".question-hint").textContent =
+            "Explain your answer clearly in your own words.";
+
+
+        questionNumber.textContent =
+            String(currentQuestion + 1).padStart(2, "0");
+
+
+        const percentage =
+            Math.round(
+                ((currentQuestion + 1) / questions.length) * 100
+            );
+
+        progressPercent.textContent = percentage + "%";
+
+        progressFill.style.width = percentage + "%";
+
+
+        answerInput.value = "";
+
+        characterCount.textContent = "0 characters";
+
+
+        // Final question button
+
+        if (currentQuestion === questions.length - 1) {
+
+            nextButton.textContent = "Finish Assessment →";
+
+        }
+
+        else {
+
+            nextButton.textContent = "Next Question →";
+
+        }
+
+    }
+
+
+    // ---------------- NEXT / FINISH ----------------
+
+    nextButton.addEventListener("click", async function () {
+
+        const answer = answerInput.value.trim();
+
+
+        // Don't allow empty answers
+
+        if (answer.length < 3) {
+
+            alert("Please write an answer before continuing.");
+
+            return;
+
+        }
+
+
+        // Save current answer
+
+        answers.push({
+
+            question: questions[currentQuestion].question,
+
+            answer: answer
+
+        });
+
+
+        // Go to next question
+
+        if (currentQuestion < questions.length - 1) {
+
+            currentQuestion++;
+
+            loadQuestion();
+
+        }
+
+        else {
+
+            // ---------------- FINISH ASSESSMENT ----------------
+
+            localStorage.setItem(
+                "skillsetuAnswers",
+                JSON.stringify(answers)
+            );
+
+
+            try {
+
+                const response = await fetch(
+                    "http://127.0.0.1:5000/evaluate",
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                        user_id: userId,
+                        answers: answers
+                        })
+
+                    }
+                );
+
+
+                const data = await response.json();
+
+
+                console.log(
+                    "Backend evaluation:",
+                    data
+                );
+
+
+                // Save evaluation
+
+                localStorage.setItem(
+                    "skillsetuEvaluation",
+                    JSON.stringify(data)
+                );
+
+
+                // Go to results
+
+                window.location.href = "results.html";
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Backend evaluation failed:",
+                    error
+                );
+
+                alert(
+                    "Could not connect to SkillBridge backend. " +
+                    "Make sure Flask is running."
+                );
+
+            }
+
+        }
+
+    });
+
+
+    // ---------------- START ASSESSMENT ----------------
+
+    fetchQuestions();
+
+</script>
+
+</body>
+</html>
+

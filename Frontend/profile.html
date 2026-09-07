@@ -94,62 +94,10 @@
                 <form class="profile-form" id="profileForm">
 
 
-                    <!-- NAME -->
-
-                    <div class="form-group">
-
-                        <label for="name">
-                            YOUR NAME
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter your name"
-                            required
-                        >
-
-                    </div>
+                    
 
 
-                    <!-- EDUCATION -->
-
-                    <div class="form-group">
-
-                        <label for="education">
-                            CURRENT EDUCATION LEVEL
-                        </label>
-
-                        <select
-                            id="education"
-                            name="education"
-                            required
-                        >
-
-                            <option value="" disabled selected>
-                                Select your current level
-                            </option>
-
-                            <option value="school">
-                                School
-                            </option>
-
-                            <option value="undergraduate">
-                                Undergraduate
-                            </option>
-
-                            <option value="postgraduate">
-                                Postgraduate
-                            </option>
-
-                            <option value="working">
-                                Working Professional
-                            </option>
-
-                        </select>
-
-                    </div>
+                    
 
 
                     <!-- INTEREST -->
@@ -339,44 +287,148 @@
 
     </main>
 
-
     <script>
-        document
-            .getElementById("profileForm")
-            .addEventListener("submit", function(event) {
-    
-                event.preventDefault();
-    
-                const profile = {
-    
-                    name:
-                        document.getElementById("name").value,
-    
-                    education:
-                        document.getElementById("education").value,
-    
-                    interest:
-                        document.getElementById("interest").value,
-    
-                    level:
-                        document.querySelector(
-                            'input[name="level"]:checked'
-                        ).value,
-    
-                    skills:
-                        document.getElementById("skills").value
-                };
-    
-                localStorage.setItem(
-                    "skillsetuProfile",
-                    JSON.stringify(profile)
-                );
-    
-                window.location.href = "assessment.html";
-    
-            });
-    </script>
 
+document
+    .getElementById("profileForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        // ---------------- GET LOGGED-IN USER ----------------
+
+        const savedUser =
+            localStorage.getItem("skillsetuUser");
+
+        if (!savedUser) {
+
+            alert("Please sign in first.");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        const user = JSON.parse(savedUser);
+
+
+        // ---------------- GET SELECTED LEVEL ----------------
+
+        const selectedLevel =
+            document.querySelector(
+                'input[name="level"]:checked'
+            );
+
+        if (!selectedLevel) {
+
+            alert("Please select your current level.");
+            return;
+        }
+
+
+        // ---------------- CREATE PROFILE ----------------
+
+        const profile = {
+
+            user_id: user.id,
+
+            interest:
+                document.getElementById("interest").value,
+
+            level:
+                selectedLevel.value,
+
+            skills:
+                document.getElementById("skills").value
+        };
+
+
+        console.log("PROFILE DATA:", profile);
+
+
+        // ---------------- SEND PROFILE TO FLASK ----------------
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:5000/profile",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(profile)
+                }
+            );
+
+
+            const data = await response.json();
+
+            console.log("PROFILE RESPONSE:", data);
+
+
+            // ---------------- CHECK RESPONSE ----------------
+
+            if (!response.ok) {
+
+                alert(
+                    "PROFILE ERROR: " +
+                    (
+                        data.message ||
+                        "Could not save profile."
+                    )
+                );
+
+                return;
+            }
+
+
+            // ---------------- SAVE PROFILE LOCALLY ----------------
+
+            localStorage.setItem(
+                "skillsetuProfile",
+                JSON.stringify(profile)
+            );
+
+
+            console.log(
+                "PROFILE SAVED SUCCESSFULLY"
+            );
+
+
+            // ---------------- GO TO ASSESSMENT ----------------
+
+            console.log(
+                "REDIRECTING TO ASSESSMENT..."
+            );
+
+
+            window.location.href =
+                "assessment.html";
+
+        }
+
+
+        // ---------------- BACKEND CONNECTION ERROR ----------------
+
+        catch (error) {
+
+            console.error(
+                "Profile save error:",
+                error
+            );
+
+            alert(
+                "Could not connect to SkillSetu backend. " +
+                "Make sure Flask is running."
+            );
+
+        }
+
+    });
+
+</script>
+    
 </body>
 
 </html>

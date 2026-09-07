@@ -131,7 +131,7 @@
 
                     <div class="hero-actions">
 
-                        <a href="profile.html" class="btn btn-primary">
+                        <a href="signin.html" class="btn btn-primary" onclick="if (localStorage.getItem('skillsetuUser')) { window.location.href='profile.html'; return false; }">
                             Start Your Assessment →
                         </a>
 
@@ -193,8 +193,8 @@
 
                         <div class="score-section">
 
-                            <div class="score-number">
-                                78<span>%</span>
+                            <div class="score-number" id="homeOverallScore">
+                                --<span>%</span>
                             </div>
 
                             <div class="score-description">
@@ -204,89 +204,31 @@
                         </div>
 
 
-                        <!-- Skill Bars -->
+                        <!-- Dynamic Skill Bars -->
 
-                        <div class="skill-list">
-
-                            <div class="skill-row">
-
-                                <div class="skill-info">
-
-                                    <span>
-                                        Python
-                                    </span>
-
-                                    <span>
-                                        86%
-                                    </span>
-
-                                </div>
-
-                                <div class="skill-bar">
-                                    <div class="skill-progress progress-86"></div>
-                                </div>
-
-                            </div>
-
+                        <div class="skill-list" id="homeSkillList">
 
                             <div class="skill-row">
 
                                 <div class="skill-info">
 
                                     <span>
-                                        Data Analysis
+                                        Complete assessment
                                     </span>
 
                                     <span>
-                                        72%
+                                        --%
                                     </span>
 
                                 </div>
 
                                 <div class="skill-bar">
-                                    <div class="skill-progress progress-72"></div>
-                                </div>
 
-                            </div>
+                                    <div
+                                        class="skill-progress"
+                                        style="width:0%">
+                                    </div>
 
-
-                            <div class="skill-row">
-
-                                <div class="skill-info">
-
-                                    <span>
-                                        SQL
-                                    </span>
-
-                                    <span>
-                                        81%
-                                    </span>
-
-                                </div>
-
-                                <div class="skill-bar">
-                                    <div class="skill-progress progress-81"></div>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skill-row">
-
-                                <div class="skill-info">
-
-                                    <span>
-                                        Statistics
-                                    </span>
-
-                                    <span>
-                                        61%
-                                    </span>
-
-                                </div>
-
-                                <div class="skill-bar">
-                                    <div class="skill-progress progress-61"></div>
                                 </div>
 
                             </div>
@@ -302,18 +244,10 @@
                                 NEXT AREAS
                             </span>
 
-                            <div class="next-tags">
+                            <div class="next-tags" id="homeNextAreas">
 
                                 <span>
-                                    Statistics
-                                </span>
-
-                                <span>
-                                    Machine Learning
-                                </span>
-
-                                <span>
-                                    Data Visualization
+                                    Complete assessment
                                 </span>
 
                             </div>
@@ -741,7 +675,7 @@
                 <div class="section-heading">
 
                     <div class="eyebrow">
-                            SKILLBRIDGE ECOSYSTEM
+                        SKILLBRIDGE ECOSYSTEM
                     </div>
 
                     <h2>
@@ -960,7 +894,7 @@
                         and discover what you should do next.
                     </p>
 
-                    <a href="#" class="btn btn-primary btn-large">
+                    <a href="signin.html" class="btn btn-primary btn-large" onclick="if (localStorage.getItem('skillsetuUser')) { window.location.href='profile.html'; return false; }">
                         Start Your Assessment →
                     </a>
 
@@ -1076,11 +1010,11 @@
                         Account
                     </h4>
 
-                    <a href="#">
+                    <a href="signin.html">
                         Sign In
                     </a>
 
-                    <a href="#">
+                    <a href="signup.html">
                         Sign Up
                     </a>
 
@@ -1126,6 +1060,282 @@
 
     <script src="script.js"></script>
 
+
+    <!-- =====================================================
+         LOAD LAST ASSESSMENT RESULT
+    ====================================================== -->
+
+    <script>
+
+        const savedEvaluation =
+            JSON.parse(
+                localStorage.getItem("skillsetuEvaluation")
+            );
+
+
+        // ==========================================
+        // NO PREVIOUS ASSESSMENT
+        // ==========================================
+
+        if (
+            !savedEvaluation ||
+            !savedEvaluation.success
+        ) {
+
+            document.getElementById(
+                "homeOverallScore"
+            ).innerHTML =
+                '--<span>%</span>';
+
+
+            document.getElementById(
+                "homeSkillList"
+            ).innerHTML = `
+
+                <div class="skill-row">
+
+                    <div class="skill-info">
+
+                        <span>
+                            Complete assessment
+                        </span>
+
+                        <span>
+                            --%
+                        </span>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <div
+                            class="skill-progress"
+                            style="width:0%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        // ==========================================
+        // DISPLAY LAST ASSESSMENT
+        // ==========================================
+
+        else {
+
+            // ======================================
+            // OVERALL SCORE
+            // ======================================
+
+            const overallScore =
+                savedEvaluation.overall_score || 0;
+
+
+            document.getElementById(
+                "homeOverallScore"
+            ).innerHTML =
+                overallScore + '<span>%</span>';
+
+
+            // ======================================
+            // ACTUAL SKILL PERFORMANCE
+            // ======================================
+
+            const skillPerformance =
+                savedEvaluation.skill_performance || {};
+
+
+            /*
+                Example:
+
+                {
+                    "Statistics": 40,
+                    "Data Analysis": 75,
+                    "Data Preprocessing": 55
+                }
+
+                Object.entries() converts that into:
+
+                [
+                    ["Statistics", 40],
+                    ["Data Analysis", 75],
+                    ["Data Preprocessing", 55]
+                ]
+            */
+
+            const skills =
+                Object.entries(skillPerformance);
+
+
+            const skillList =
+                document.getElementById(
+                    "homeSkillList"
+                );
+
+
+            // ======================================
+            // CLEAR OLD DEMO SKILLS
+            // ======================================
+
+            skillList.innerHTML = "";
+
+
+            // ======================================
+            // DISPLAY ACTUAL SKILLS
+            // ======================================
+
+            if (skills.length === 0) {
+
+                skillList.innerHTML = `
+
+                    <div class="skill-row">
+
+                        <div class="skill-info">
+
+                            <span>
+                                No skill data available
+                            </span>
+
+                            <span>
+                                --%
+                            </span>
+
+                        </div>
+
+                        <div class="skill-bar">
+
+                            <div
+                                class="skill-progress"
+                                style="width:0%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+            else {
+
+                skills
+                    .slice(0, 4)
+                    .forEach(function(item) {
+
+                        const skillName =
+                            item[0];
+
+                        const score =
+                            item[1];
+
+
+                        const row =
+                            document.createElement("div");
+
+                        row.className =
+                            "skill-row";
+
+
+                        row.innerHTML = `
+
+                            <div class="skill-info">
+
+                                <span>
+                                    ${skillName}
+                                </span>
+
+                                <span>
+                                    ${score}%
+                                </span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div
+                                    class="skill-progress"
+                                    style="width:${score}%">
+                                </div>
+
+                            </div>
+
+                        `;
+
+
+                        skillList.appendChild(row);
+
+                    });
+
+            }
+
+
+            // ======================================
+            // NEXT AREAS
+            // ======================================
+
+            const nextAreas =
+                document.getElementById(
+                    "homeNextAreas"
+                );
+
+
+            nextAreas.innerHTML = "";
+
+
+            // Sort skills from weakest to strongest
+
+            const weakestSkills =
+                skills
+                    .slice()
+                    .sort(function(a, b) {
+
+                        return a[1] - b[1];
+
+                    })
+                    .slice(0, 3);
+
+
+            if (weakestSkills.length === 0) {
+
+                const tag =
+                    document.createElement("span");
+
+                tag.textContent =
+                    "Complete assessment";
+
+
+                nextAreas.appendChild(tag);
+
+            }
+
+            else {
+
+                weakestSkills.forEach(function(item) {
+
+                    const tag =
+                        document.createElement("span");
+
+
+                    tag.textContent =
+                        item[0];
+
+
+                    nextAreas.appendChild(tag);
+
+                });
+
+            }
+
+        }
+
+    </script>
+
 </body>
 
-</html> 
+</html>
