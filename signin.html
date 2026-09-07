@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillSetu — Sign In</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="noise"></div>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-mark">S</span>
+
+                <span class="brand-name">
+                    SkillSetu
+                </span>
+
+            </a>
+
+            <div class="nav-actions">
+
+                <a href="index.html" class="btn btn-ghost">
+                    ← Back
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- SIGN IN -->
+
+    <main>
+
+        <section class="profile-page">
+
+            <div class="profile-page-container">
+
+                <!-- INTRO -->
+
+                <div class="profile-intro">
+
+                    <div class="eyebrow">
+                        WELCOME BACK
+                    </div>
+
+                    <h1>
+                        Continue your
+                        <span>SkillSetu journey.</span>
+                    </h1>
+
+                    <p>
+                        Sign in to access your profile,
+                        assessments and skill progress.
+                    </p>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <form class="profile-form" id="signinForm">
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            EMAIL
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            PASSWORD
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div class="form-footer">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-large"
+                        >
+                            Sign In →
+                        </button>
+
+                    </div>
+
+
+                    <p style="margin-top: 24px; text-align: center;">
+
+                        Don't have an account?
+
+                        <a href="signup.html">
+                            Create one
+                        </a>
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- LOGIN SCRIPT -->
+
+    <script>
+
+        document
+            .getElementById("signinForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+
+                fetch("http://127.0.0.1:5000/login", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        email: email,
+                        password: password
+
+                    })
+
+                })
+
+                .then(function(response) {
+
+                    return response.json();
+
+                })
+
+                .then(function(data) {
+
+                    console.log("Login response:", data);
+
+
+                    if (data.success) {
+
+                        /*
+                         * Save logged-in user information.
+                         * We will use this later to connect
+                         * profiles and assessments to the user.
+                         */
+
+                        localStorage.setItem(
+                            "skillsetuUser",
+                            JSON.stringify(data.user)
+                        );
+
+
+                        alert("Login successful!");
+
+                        window.location.href = "profile.html";
+
+
+                    } else {
+
+                        alert(data.message);
+
+                    }
+
+                })
+
+                .catch(function(error) {
+
+                    console.error(
+                        "Login failed:",
+                        error
+                    );
+
+                    alert(
+                        "Could not connect to SkillSetu backend. " +
+                        "Make sure Flask is running."
+                    );
+
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
