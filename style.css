@@ -1,4 +1,3 @@
-
 /* =========================================================
    SKILLBRIDGE
    Main stylesheet
@@ -87,16 +86,12 @@ img {
 body {
     position: relative;
     background:
-        radial-gradient(
-            circle at 75% 15%,
+        radial-gradient(circle at 75% 15%,
             rgba(44, 89, 67, 0.28),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 10% 70%,
+            transparent 30%),
+        radial-gradient(circle at 10% 70%,
             rgba(210, 161, 61, 0.06),
-            transparent 25%
-        ),
+            transparent 25%),
         var(--green-dark);
 }
 
@@ -444,11 +439,9 @@ body {
     border-radius: var(--radius-large);
 
     background:
-        linear-gradient(
-            145deg,
+        linear-gradient(145deg,
             rgba(44, 89, 67, 0.4),
-            rgba(18, 42, 32, 0.8)
-        );
+            rgba(18, 42, 32, 0.8));
 
     box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.25);
@@ -501,6 +494,39 @@ body {
     border-radius: 50%;
     background: var(--gold);
     box-shadow: 0 0 16px rgba(210, 161, 61, 0.6);
+}
+
+
+/* Resume Upload Button */
+.resume-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 20px;
+    border: 1px solid rgba(210, 161, 61, 0.45);
+    border-radius: 10px;
+
+    background: rgba(210, 161, 61, 0.08);
+    color: #d2a13d;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resume-upload-btn:hover {
+    background: rgba(210, 161, 61, 0.16);
+    border-color: #d2a13d;
+    transform: translateY(-1px);
+}
+
+.resume-upload-btn:active {
+    transform: translateY(0);
 }
 
 
@@ -953,11 +979,9 @@ body {
     border-radius: var(--radius-large);
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             rgba(44, 89, 67, 0.35),
-            rgba(18, 42, 32, 0.6)
-        );
+            rgba(18, 42, 32, 0.6));
 }
 
 .integration-content {
@@ -1435,7 +1459,7 @@ body {
     outline: none;
 
     transition: border-color 0.2s ease,
-                box-shadow 0.2s ease;
+        box-shadow 0.2s ease;
 }
 
 .question-card textarea::placeholder {
@@ -1979,7 +2003,7 @@ body {
     margin-bottom: 60px;
 }
 
-.opportunity-section > h2 {
+.opportunity-section>h2 {
     font-family: "Fraunces", serif;
     font-size: clamp(32px, 4vw, 48px);
     color: var(--cream);
@@ -2001,7 +2025,7 @@ body {
     border-radius: var(--radius);
 
     transition: transform 0.2s ease,
-                border-color 0.2s ease;
+        border-color 0.2s ease;
 }
 
 .opportunity-card:hover {

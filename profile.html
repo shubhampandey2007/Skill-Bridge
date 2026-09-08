@@ -8,12 +8,14 @@
     <title>SkillBridge — Build Your Profile</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230E2018'/%3E%3Cpath d='M20 6C20 6 10 13 10 23C10 29.6 14.6 33 20 33C25.4 33 30 29.6 30 23C30 13 20 6 20 6Z' fill='none' stroke='%23D2A13D' stroke-width='2'/%3E%3Cpath d='M20 11V31' stroke='%238FAE84' stroke-width='1.4' stroke-opacity='0.7'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230E2018'/%3E%3Cpath d='M20 6C20 6 10 13 10 23C10 29.6 14.6 33 20 33C25.4 33 30 29.6 30 23C30 13 20 6 20 6Z' fill='none' stroke='%23D2A13D' stroke-width='2'/%3E%3Cpath d='M20 11V31' stroke='%238FAE84' stroke-width='1.4' stroke-opacity='0.7'/%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -34,8 +36,9 @@
 
                 <span class="brand-mark">
                     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M20 4C20 4 8 12 8 24C8 31.7 13.4 36 20 36C26.6 36 32 31.7 32 24C32 12 20 4 20 4Z" stroke="currentColor" stroke-width="2.4"/>
-                        <path d="M20 10V32" stroke="currentColor" stroke-width="1.6" stroke-opacity="0.55"/>
+                        <path d="M20 4C20 4 8 12 8 24C8 31.7 13.4 36 20 36C26.6 36 32 31.7 32 24C32 12 20 4 20 4Z"
+                            stroke="currentColor" stroke-width="2.4" />
+                        <path d="M20 10V32" stroke="currentColor" stroke-width="1.6" stroke-opacity="0.55" />
                     </svg>
                 </span>
 
@@ -94,10 +97,10 @@
                 <form class="profile-form" id="profileForm">
 
 
-                    
 
 
-                    
+
+
 
 
                     <!-- INTEREST -->
@@ -108,11 +111,7 @@
                             PRIMARY AREA OF INTEREST
                         </label>
 
-                        <select
-                            id="interest"
-                            name="interest"
-                            required
-                        >
+                        <select id="interest" name="interest" required>
 
                             <option value="" disabled selected>
                                 What are you interested in?
@@ -160,12 +159,7 @@
 
                             <label class="level-option">
 
-                                <input
-                                    type="radio"
-                                    name="level"
-                                    value="beginner"
-                                    required
-                                >
+                                <input type="radio" name="level" value="beginner" required>
 
                                 <span class="level-content">
 
@@ -185,11 +179,7 @@
 
                             <label class="level-option">
 
-                                <input
-                                    type="radio"
-                                    name="level"
-                                    value="intermediate"
-                                >
+                                <input type="radio" name="level" value="intermediate">
 
                                 <span class="level-content">
 
@@ -209,11 +199,7 @@
 
                             <label class="level-option">
 
-                                <input
-                                    type="radio"
-                                    name="level"
-                                    value="advanced"
-                                >
+                                <input type="radio" name="level" value="advanced">
 
                                 <span class="level-content">
 
@@ -237,21 +223,52 @@
 
                     <!-- SKILLS -->
 
+                    <!-- SKILLS -->
+
                     <div class="form-group">
 
                         <label for="skills">
                             SKILLS YOU ALREADY KNOW
                         </label>
 
-                        <input
-                            type="text"
-                            id="skills"
-                            name="skills"
-                            placeholder="e.g. Python, SQL, HTML"
-                        >
+                        <input type="text" id="skills" name="skills" placeholder="e.g. Python, SQL, HTML">
 
                         <span class="input-hint">
                             Separate multiple skills with commas.
+                        </span>
+
+                    </div>
+
+
+                    <!-- RESUME -->
+
+                    <div class="form-group">
+
+                        <label>
+                            UPLOAD YOUR RESUME
+                        </label>
+
+                        <label for="resume-upload" class="resume-upload-btn">
+
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z"
+                                    stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+
+                                <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+
+                                <path d="M8 13H16M8 17H13" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" />
+                            </svg>
+
+                            Upload Resume
+
+                        </label>
+
+                        <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" hidden>
+
+                        <span class="input-hint">
+                            PDF, DOC or DOCX
                         </span>
 
                     </div>
@@ -269,10 +286,7 @@
 
                         </div>
 
-                        <button
-                            type="submit"
-                            class="btn btn-primary btn-large"
-                        >
+                        <button type="submit" class="btn btn-primary btn-large">
                             Continue to Assessment →
                         </button>
 
@@ -289,146 +303,146 @@
 
     <script>
 
-document
-    .getElementById("profileForm")
-    .addEventListener("submit", async function(event) {
+        document
+            .getElementById("profileForm")
+            .addEventListener("submit", async function (event) {
 
-        event.preventDefault();
+                event.preventDefault();
 
-        // ---------------- GET LOGGED-IN USER ----------------
+                // ---------------- GET LOGGED-IN USER ----------------
 
-        const savedUser =
-            localStorage.getItem("skillsetuUser");
+                const savedUser =
+                    localStorage.getItem("skillsetuUser");
 
-        if (!savedUser) {
+                if (!savedUser) {
 
-            alert("Please sign in first.");
-            window.location.href = "signin.html";
-            return;
-        }
-
-        const user = JSON.parse(savedUser);
-
-
-        // ---------------- GET SELECTED LEVEL ----------------
-
-        const selectedLevel =
-            document.querySelector(
-                'input[name="level"]:checked'
-            );
-
-        if (!selectedLevel) {
-
-            alert("Please select your current level.");
-            return;
-        }
-
-
-        // ---------------- CREATE PROFILE ----------------
-
-        const profile = {
-
-            user_id: user.id,
-
-            interest:
-                document.getElementById("interest").value,
-
-            level:
-                selectedLevel.value,
-
-            skills:
-                document.getElementById("skills").value
-        };
-
-
-        console.log("PROFILE DATA:", profile);
-
-
-        // ---------------- SEND PROFILE TO FLASK ----------------
-
-        try {
-
-            const response = await fetch(
-                "http://127.0.0.1:5000/profile",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify(profile)
+                    alert("Please sign in first.");
+                    window.location.href = "signin.html";
+                    return;
                 }
-            );
+
+                const user = JSON.parse(savedUser);
 
 
-            const data = await response.json();
+                // ---------------- GET SELECTED LEVEL ----------------
 
-            console.log("PROFILE RESPONSE:", data);
+                const selectedLevel =
+                    document.querySelector(
+                        'input[name="level"]:checked'
+                    );
 
+                if (!selectedLevel) {
 
-            // ---------------- CHECK RESPONSE ----------------
-
-            if (!response.ok) {
-
-                alert(
-                    "PROFILE ERROR: " +
-                    (
-                        data.message ||
-                        "Could not save profile."
-                    )
-                );
-
-                return;
-            }
+                    alert("Please select your current level.");
+                    return;
+                }
 
 
-            // ---------------- SAVE PROFILE LOCALLY ----------------
+                // ---------------- CREATE PROFILE ----------------
 
-            localStorage.setItem(
-                "skillsetuProfile",
-                JSON.stringify(profile)
-            );
+                const profile = {
 
+                    user_id: user.id,
 
-            console.log(
-                "PROFILE SAVED SUCCESSFULLY"
-            );
+                    interest:
+                        document.getElementById("interest").value,
 
+                    level:
+                        selectedLevel.value,
 
-            // ---------------- GO TO ASSESSMENT ----------------
-
-            console.log(
-                "REDIRECTING TO ASSESSMENT..."
-            );
+                    skills:
+                        document.getElementById("skills").value
+                };
 
 
-            window.location.href =
-                "assessment.html";
-
-        }
+                console.log("PROFILE DATA:", profile);
 
 
-        // ---------------- BACKEND CONNECTION ERROR ----------------
+                // ---------------- SEND PROFILE TO FLASK ----------------
 
-        catch (error) {
+                try {
 
-            console.error(
-                "Profile save error:",
-                error
-            );
+                    const response = await fetch(
+                        "http://127.0.0.1:5000/profile",
+                        {
+                            method: "POST",
 
-            alert(
-                "Could not connect to SkillSetu backend. " +
-                "Make sure Flask is running."
-            );
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
 
-        }
+                            body: JSON.stringify(profile)
+                        }
+                    );
 
-    });
 
-</script>
-    
+                    const data = await response.json();
+
+                    console.log("PROFILE RESPONSE:", data);
+
+
+                    // ---------------- CHECK RESPONSE ----------------
+
+                    if (!response.ok) {
+
+                        alert(
+                            "PROFILE ERROR: " +
+                            (
+                                data.message ||
+                                "Could not save profile."
+                            )
+                        );
+
+                        return;
+                    }
+
+
+                    // ---------------- SAVE PROFILE LOCALLY ----------------
+
+                    localStorage.setItem(
+                        "skillsetuProfile",
+                        JSON.stringify(profile)
+                    );
+
+
+                    console.log(
+                        "PROFILE SAVED SUCCESSFULLY"
+                    );
+
+
+                    // ---------------- GO TO ASSESSMENT ----------------
+
+                    console.log(
+                        "REDIRECTING TO ASSESSMENT..."
+                    );
+
+
+                    window.location.href =
+                        "assessment.html";
+
+                }
+
+
+                // ---------------- BACKEND CONNECTION ERROR ----------------
+
+                catch (error) {
+
+                    console.error(
+                        "Profile save error:",
+                        error
+                    );
+
+                    alert(
+                        "Could not connect to SkillSetu backend. " +
+                        "Make sure Flask is running."
+                    );
+
+                }
+
+            });
+
+    </script>
+
 </body>
 
 </html>

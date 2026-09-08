@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Main CSS -->
@@ -131,7 +132,8 @@
 
                     <div class="hero-actions">
 
-                        <a href="signin.html" class="btn btn-primary" onclick="if (localStorage.getItem('skillsetuUser')) { window.location.href='profile.html'; return false; }">
+                        <a href="signin.html" class="btn btn-primary"
+                            onclick="if (localStorage.getItem('skillsetuUser')) { window.location.href='profile.html'; return false; }">
                             Start Your Assessment →
                         </a>
 
@@ -224,9 +226,7 @@
 
                                 <div class="skill-bar">
 
-                                    <div
-                                        class="skill-progress"
-                                        style="width:0%">
+                                    <div class="skill-progress" style="width:0%">
                                     </div>
 
                                 </div>
@@ -695,7 +695,7 @@
                 <div class="portal-grid">
 
 
-                    <!-- MAIN PORTAL -->
+                    <!-- Student portal -->
 
                     <a href="index.html" class="portal-card active-portal">
 
@@ -708,12 +708,13 @@
                         </span>
 
                         <h3>
-                            Main Portal
+                            Student Portal
                         </h3>
 
                         <p>
-                            Your personal skill profile, assessments,
-                            roadmap and opportunities.
+                            Assess your skills, identify industry-relevant skill gaps, and build a personalized career
+                            roadmap.
+                            Discover learning programs, internships and placement opportunities matched to your profile.
                         </p>
 
                         <span class="portal-link">
@@ -737,12 +738,13 @@
                         </span>
 
                         <h3>
-                            Academic Portal
+                            Institute Portal
                         </h3>
 
                         <p>
-                            Connect student profiles with colleges
-                            and academic institutions.
+                            Monitor student skill development, internship participation and placement readiness.
+                            Use industry skill-demand insights to align training and curriculum with current industry
+                            requirements.
                         </p>
 
                         <span class="portal-link">
@@ -770,8 +772,11 @@
                         </h3>
 
                         <p>
-                            Companies can post skill requirements,
-                            roles and opportunities they are looking for.
+                            Define the skills, qualifications and roles your organization needs and connect with
+                            relevant student talent.
+                            Post internships, jobs, live projects, apprenticeships and industry-led training programs.
+                            Discover candidates based on skill compatibility and support them through mentorship and
+                            recruitment.
                         </p>
 
                         <span class="portal-link">
@@ -795,12 +800,12 @@
                         </span>
 
                         <h3>
-                            Testing Portal
+                            Academician Portal
                         </h3>
 
                         <p>
-                            Assessment infrastructure for structured
-                            testing and skill evaluation.
+                            Faculty-focused opportunities for industry training, FDPs, research and academic-industry
+                            collaboration.
                         </p>
 
                         <span class="portal-link">
@@ -894,7 +899,8 @@
                         and discover what you should do next.
                     </p>
 
-                    <a href="signin.html" class="btn btn-primary btn-large" onclick="if (localStorage.getItem('skillsetuUser')) { window.location.href='profile.html'; return false; }">
+                    <a href="signin.html" class="btn btn-primary btn-large"
+                        onclick="if (localStorage.getItem('skillsetuUser')) { window.location.href='profile.html'; return false; }">
                         Start Your Assessment →
                     </a>
 
@@ -1226,7 +1232,7 @@
 
                 skills
                     .slice(0, 4)
-                    .forEach(function(item) {
+                    .forEach(function (item) {
 
                         const skillName =
                             item[0];
@@ -1293,7 +1299,7 @@
             const weakestSkills =
                 skills
                     .slice()
-                    .sort(function(a, b) {
+                    .sort(function (a, b) {
 
                         return a[1] - b[1];
 
@@ -1316,7 +1322,7 @@
 
             else {
 
-                weakestSkills.forEach(function(item) {
+                weakestSkills.forEach(function (item) {
 
                     const tag =
                         document.createElement("span");
