@@ -93,7 +93,7 @@
                         >
 
                     </div> -->
-                    
+
                     <!-- EMAIL -->
 
                     <div class="form-group">
@@ -102,12 +102,7 @@
                             EMAIL
                         </label>
 
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            required
-                        >
+                        <input type="email" id="email" placeholder="Enter your email" required>
 
                     </div>
 
@@ -120,24 +115,16 @@
                             PASSWORD
                         </label>
 
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            required
-                        >
+                        <input type="password" id="password" placeholder="Enter your password" required>
 
                     </div>
 
-                    
+
                     <!-- BUTTON -->
 
                     <div class="form-footer">
 
-                        <button
-                            type="submit"
-                            class="btn btn-primary btn-large"
-                        >
+                        <button type="submit" class="btn btn-primary btn-large">
                             Sign In →
                         </button>
 
@@ -169,7 +156,7 @@
 
         document
             .getElementById("signinForm")
-            .addEventListener("submit", function(event) {
+            .addEventListener("submit", function (event) {
 
                 event.preventDefault();
 
@@ -198,57 +185,57 @@
 
                 })
 
-                .then(function(response) {
+                    .then(function (response) {
 
-                    return response.json();
+                        return response.json();
 
-                })
+                    })
 
-                .then(function(data) {
+                    .then(function (data) {
 
-                    console.log("Login response:", data);
+                        console.log("Login response:", data);
 
 
-                    if (data.success) {
+                        if (data.success) {
 
-                        /*
-                         * Save logged-in user information.
-                         * We will use this later to connect
-                         * profiles and assessments to the user.
-                         */
+                            /*
+                             * Save logged-in user information.
+                             * We will use this later to connect
+                             * profiles and assessments to the user.
+                             */
 
-                        localStorage.setItem(
-                            "skillsetuUser",
-                            JSON.stringify(data.user)
+                            localStorage.setItem(
+                                "skillsetuUser",
+                                JSON.stringify(data.user)
+                            );
+
+
+                            alert("Login successful!");
+
+                            window.location.href = "profile.html";
+
+
+                        } else {
+
+                            alert(data.message);
+
+                        }
+
+                    })
+
+                    .catch(function (error) {
+
+                        console.error(
+                            "Login failed:",
+                            error
                         );
 
+                        alert(
+                            "Could not connect to SkillSetu backend. " +
+                            "Make sure Flask is running."
+                        );
 
-                        alert("Login successful!");
-
-                        window.location.href = "profile.html";
-
-
-                    } else {
-
-                        alert(data.message);
-
-                    }
-
-                })
-
-                .catch(function(error) {
-
-                    console.error(
-                        "Login failed:",
-                        error
-                    );
-
-                    alert(
-                        "Could not connect to SkillSetu backend. " +
-                        "Make sure Flask is running."
-                    );
-
-                });
+                    });
 
             });
 
